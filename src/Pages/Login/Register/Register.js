@@ -79,11 +79,19 @@ const Register = () => {
 
 
                     </form>
+
                     <div className="my-2 text-center">
                         <span >Already have an account? <Link to="/login">Login</Link></span>
                     </div>
                 </section>
-
+                <div className="container w-50">
+                    {user?.email && <div class="alert alert-success" role="alert">
+                        User Created Successfully !
+                    </div>}
+                    {error && <div class="alert alert-danger" role="alert">
+                        {error}
+                    </div>}
+                </div>
                 <section style={{ display: 'flex', alignItems: 'center', width: '400px', margin: '0 auto' }}>
                     <span style={{ flexGrow: 1, borderBottom: '1px solid lightGray', margin: '5px' }}></span>
                     <span>Or</span>

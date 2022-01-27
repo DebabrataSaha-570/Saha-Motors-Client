@@ -4,11 +4,10 @@ import Navbar from '../../Home/Navbar/Navbar';
 import { useLocation, useHistory, Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
+
 const Login = () => {
     const { signInWithGoogle, logInUser, user, error, } = useAuth()
-    const [showA, setShowA] = useState(true);
 
-    const toggleShowA = () => setShowA(!showA);
 
     const emailRef = useRef()
     const passwordRef = useRef()
@@ -26,6 +25,7 @@ const Login = () => {
             alert('Password did not match. Try again')
             return;
         }
+        console.log(emailValue, confirmPasswordValue, passwordValue)
         logInUser(emailValue, confirmPasswordValue, location, history)
 
     }
@@ -51,7 +51,7 @@ const Login = () => {
                         <label for="confirmPassword" class="form-label">Confrim Password</label>
                         <input ref={confirmPasswordRef} type="password" class="form-control" id="confirmPassword" placeholder='' />
                     </div>
-                    <div className="btn btn-primary w-100" type="submit">Login</div>
+                    <button className="btn btn-primary w-100" type="submit">Login</button>
 
 
                 </form>
@@ -59,6 +59,14 @@ const Login = () => {
                     <span >Don't have an account? <Link to="/register">Register</Link></span>
                 </div>
             </section>
+            <div className="container w-50">
+                {user?.email && <div class="alert alert-success" role="alert">
+                    User Created Successfully !
+                </div>}
+                {error && <div class="alert alert-danger" role="alert">
+                    {error}
+                </div>}
+            </div>
 
             <section style={{ display: 'flex', alignItems: 'center', width: '400px', margin: '0 auto' }}>
                 <span style={{ flexGrow: 1, borderBottom: '1px solid lightGray', margin: '5px' }}></span>

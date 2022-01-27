@@ -20,6 +20,7 @@ const useFirebase = () => {
                 const user = userCredential.user;
                 const newUser = { email, displayName: name }
                 setUser(newUser)
+                setError('')
                 console.log(user)
                 updateProfile(auth.currentUser, {
                     displayName: name,
@@ -27,6 +28,7 @@ const useFirebase = () => {
 
                 }).catch((error) => {
                     console.log(error)
+
                 });
 
                 history.push('/')
@@ -36,6 +38,7 @@ const useFirebase = () => {
                 const errorMessage = error.message;
                 console.log(errorMessage)
                 setError((errorMessage))
+                setUser({})
             })
             .finally(() => setIsLoading(false))
             ;
@@ -49,13 +52,15 @@ const useFirebase = () => {
                 // Signed in 
                 const user = userCredential.user;
                 setUser(user)
-                const destination = location.state.from || '/'
+                setError('')
+                const destination = location?.state?.from || '/'
                 history.push(destination)
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 setError(errorMessage)
+                setUser({})
             })
             .finally(() => setIsLoading(false))
             ;
@@ -69,12 +74,14 @@ const useFirebase = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user)
+                setError('')
                 console.log(user)
                 const destination = location?.state?.from || '/'
                 history.push(destination)
             }).catch((error) => {
                 const errorMessage = error.message;
                 setError(errorMessage)
+                setUser({})
                 console.log(errorMessage)
             })
             .finally(() => setIsLoading(false))
@@ -85,8 +92,10 @@ const useFirebase = () => {
         setIsLoading(true)
         signOut(auth).then(() => {
             setUser({})
+            setError('')
         }).catch((error) => {
             setError(error)
+            setUser({})
         })
             .finally(() => setIsLoading(false))
             ;

@@ -40,6 +40,11 @@ const Navbar = () => {
                                     <a className="nav-link active" >Explore</a>
                                 </Link>
                             </li>
+                            <li className="nav-item">
+                                <Link to="/dashboard">
+                                    <a className="nav-link active" >Dashboard</a>
+                                </Link>
+                            </li>
 
 
                         </ul>
