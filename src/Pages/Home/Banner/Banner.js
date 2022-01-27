@@ -17,10 +17,10 @@ const Banner = () => {
                         <img src={car2} className="d-block w-100" alt="..." />
                     </div>
                     <div className="carousel-item">
-                        <img src={car1} className="d-block w-100" alt="..." />
+                        <img src={car2} className="d-block w-100" alt="..." />
                     </div>
                     <div className="carousel-item">
-                        <img src={car3} className="d-block w-100" alt="..." />
+                        <img src={car2} className="d-block w-100" alt="..." />
                     </div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
