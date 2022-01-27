@@ -4,7 +4,7 @@ import './Navbar.css'
 const Navbar = () => {
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-dark saha-motors-navbar">
+            <nav className="navbar sticky-top  navbar-expand-lg navbar-dark saha-motors-navbar">
                 <div className="container">
                     <Link to="/">
                         <a className="navbar-brand" href="#">Saha-Motors</a>
