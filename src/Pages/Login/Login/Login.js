@@ -6,7 +6,7 @@ import useAuth from '../../../hooks/useAuth';
 
 
 const Login = () => {
-    const { signInWithGoogle, logInUser, user, error, } = useAuth()
+    const { signInWithGoogle, logInUser, user, error, isLoading } = useAuth()
 
 
     const emailRef = useRef()
@@ -35,7 +35,7 @@ const Login = () => {
     return (
         <>
             <Navbar></Navbar>
-            <section style={{ border: '1px solid lightGray', width: '510px', height: '450px', }} className="mx-auto mt-5 mb-2 px-5 py-4"  >
+            {!isLoading ? <section style={{ border: '1px solid lightGray', width: '510px', height: '450px', }} className="mx-auto mt-5 mb-2 px-5 py-4"  >
                 <h3 >Please Login</h3>
                 <form onSubmit={handleFormSubmit}>
 
@@ -59,6 +59,14 @@ const Login = () => {
                     <span >Don't have an account? <Link to="/register">Register</Link></span>
                 </div>
             </section>
+                :
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            }
+
             <div className="container w-50">
                 {user?.email && <div class="alert alert-success" role="alert">
                     User Created Successfully !

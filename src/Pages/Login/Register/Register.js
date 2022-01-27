@@ -4,7 +4,7 @@ import Navbar from '../../Home/Navbar/Navbar';
 import { useHistory, Link, useLocation } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 const Register = () => {
-    const { registerUser, user, error, signInWithGoogle } = useAuth()
+    const { registerUser, user, error, signInWithGoogle, isLoading } = useAuth()
 
     const firstNameRef = useRef('')
     const lastNameRef = useRef('')
@@ -31,7 +31,7 @@ const Register = () => {
         }
         const fullName = firstNameValue + ' ' + lastNameValue
 
-        registerUser(emailValue, passwordValue, fullName, history)
+        registerUser(emailValue, passwordValue, fullName, location, history)
 
 
 
@@ -52,7 +52,7 @@ const Register = () => {
         <>
             <Navbar></Navbar>
             <div className="container">
-                <section style={{ border: '1px solid lightGray', width: '510px', height: '590px', }} className="mx-auto mt-3 mb-2 px-5 py-4"  >
+                {!isLoading ? <section style={{ border: '1px solid lightGray', width: '510px', height: '590px', }} className="mx-auto mt-3 mb-2 px-5 py-4"  >
                     <h3 >Create an account</h3>
                     <form onSubmit={handleFormSubmit}>
                         <div class="mb-3">
@@ -84,6 +84,14 @@ const Register = () => {
                         <span >Already have an account? <Link to="/login">Login</Link></span>
                     </div>
                 </section>
+                    :
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                }
+
                 <div className="container w-50">
                     {user?.email && <div class="alert alert-success" role="alert">
                         User Created Successfully !

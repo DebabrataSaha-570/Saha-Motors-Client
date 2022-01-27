@@ -13,7 +13,7 @@ const useFirebase = () => {
     const googleProvider = new GoogleAuthProvider();
     const auth = getAuth();
 
-    const registerUser = (email, password, name, history) => {
+    const registerUser = (email, password, name, location, history) => {
         setIsLoading(true)
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
@@ -31,7 +31,8 @@ const useFirebase = () => {
 
                 });
 
-                history.push('/')
+                const destination = location?.state?.from || '/'
+                history.push(destination)
             })
             .catch((error) => {
                 const errorCode = error.code;
