@@ -1,9 +1,10 @@
 import React, { useState, useRef } from 'react';
 import Footer from '../../Home/Footer/Footer';
 import Navbar from '../../Home/Navbar/Navbar';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory, Link, useLocation } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 const Register = () => {
-    // const { registerUser, user, error } = useAuth()
+    const { registerUser, user, error, signInWithGoogle } = useAuth()
 
     const firstNameRef = useRef('')
     const lastNameRef = useRef('')
@@ -11,6 +12,7 @@ const Register = () => {
     const passwordRef = useRef('')
     const confirmPasswordRef = useRef('')
 
+    const location = useLocation()
     const history = useHistory()
 
 
@@ -29,11 +31,15 @@ const Register = () => {
         }
         const fullName = firstNameValue + ' ' + lastNameValue
 
-        // registerUser(emailValue, passwordValue, fullName, history)
+        registerUser(emailValue, passwordValue, fullName, history)
 
 
 
     }
+    const handleGoogleSignIn = () => {
+        signInWithGoogle(location, history)
+    }
+
     // if (user.email) {
     //     firstNameRef.current.value = ''
     //     lastNameRef.current.value = ''
@@ -70,7 +76,7 @@ const Register = () => {
                             <input ref={confirmPasswordRef} type="password" class="form-control" id="confirmPassword" placeholder='' />
                         </div>
                         <button className='btn btn-primary w-100 ' type="submit">Create an account</button>
-                        {/* <Button className="w-100" type="submit">Create an account</Button> */}
+
 
                     </form>
                     <div className="my-2 text-center">
@@ -86,9 +92,9 @@ const Register = () => {
 
                 <section className="mt-3 mb-5" style={{ textAlign: 'center' }}>
 
-                    {/* <Button variant="light" className="rounded-pill " style={{ width: '450px', backgroundColor: 'white', border: '1px solid gray', cursor: 'pointer' }}> */}
 
-                    <button className='btn rounded-pill' style={{ width: '450px', backgroundColor: 'white', border: '1px solid gray', cursor: 'pointer' }}>
+
+                    <button onClick={handleGoogleSignIn} className='btn rounded-pill' style={{ width: '450px', backgroundColor: 'white', border: '1px solid gray', cursor: 'pointer' }}>
                         <div className="d-flex align-items-center  ">
 
                             <div style={{ marginRight: '100px' }}>
@@ -96,11 +102,11 @@ const Register = () => {
                             </div>
 
 
-                            {/* <p >Continue with google</p> */}
+
                             <p style={{ marginTop: '2.5px' }}>Continue with google</p>
 
                         </div>
-                        {/* </Button> */}
+
                     </button>
                 </section>
             </div>

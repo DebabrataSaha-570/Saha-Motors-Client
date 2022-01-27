@@ -2,9 +2,10 @@ import React, { useRef, useState } from 'react';
 import Footer from '../../Home/Footer/Footer';
 import Navbar from '../../Home/Navbar/Navbar';
 import { useLocation, useHistory, Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
-    // const { signInWithGoogle, logInUser, user, error, } = useAuth()
+    const { signInWithGoogle, logInUser, user, error, } = useAuth()
     const [showA, setShowA] = useState(true);
 
     const toggleShowA = () => setShowA(!showA);
@@ -25,12 +26,12 @@ const Login = () => {
             alert('Password did not match. Try again')
             return;
         }
-        // logInUser(emailValue, confirmPasswordValue, location, history)
+        logInUser(emailValue, confirmPasswordValue, location, history)
 
     }
-    // const handleGoogleSignIn = () => {
-    //     signInWithGoogle(location, history)
-    // }
+    const handleGoogleSignIn = () => {
+        signInWithGoogle(location, history)
+    }
     return (
         <>
             <Navbar></Navbar>
@@ -51,7 +52,7 @@ const Login = () => {
                         <input ref={confirmPasswordRef} type="password" class="form-control" id="confirmPassword" placeholder='' />
                     </div>
                     <div className="btn btn-primary w-100" type="submit">Login</div>
-                    {/* <Button className="w-100" type="submit">Login</Button> */}
+
 
                 </form>
                 <div className="my-2 text-center">
@@ -66,8 +67,8 @@ const Login = () => {
             </section>
 
             <section className="mt-3 mb-5" style={{ textAlign: 'center' }}>
-                {/* <Button onClick={handleGoogleSignIn} variant="light" className="rounded-pill " style={{ width: '450px', backgroundColor: 'white', border: '1px solid gray', cursor: 'pointer' }}> */}
-                <button className='btn rounded-pill' style={{ width: '450px', backgroundColor: 'white', border: '1px solid gray', cursor: 'pointer' }}>
+
+                <button onClick={handleGoogleSignIn} className='btn rounded-pill' style={{ width: '450px', backgroundColor: 'white', border: '1px solid gray', cursor: 'pointer' }}>
 
 
 
@@ -78,11 +79,10 @@ const Login = () => {
                         </div>
 
 
-                        {/* <p >Continue with google</p> */}
                         <p style={{ marginTop: '2.5px' }}>Continue with google</p>
 
                     </div>
-                    {/* </Button> */}
+
                 </button>
             </section>
             <Footer></Footer>
