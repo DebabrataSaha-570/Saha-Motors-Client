@@ -14,13 +14,13 @@ const Banner = () => {
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src={car2} className="d-block w-100" alt="..." />
+                        <img src='https://i.ibb.co/LZk5R7b/travis-essinger-3-V0-FGLkuey-A-unsplash.jpg' className="d-block w-100" alt="..." />
                     </div>
                     <div className="carousel-item">
-                        <img src={car2} className="d-block w-100" alt="..." />
+                        <img src='https://i.ibb.co/pyJDfsG/andre-tan-l-Rr-Nccxr-Tf-Q-unsplash.jpg' className="d-block w-100" alt="..." />
                     </div>
                     <div className="carousel-item">
-                        <img src={car2} className="d-block w-100" alt="..." />
+                        <img src='https://i.ibb.co/8gBpWJr/tyler-clemmensen-w-Lp-TPp2dzs-Y-unsplash.jpg' className="d-block w-100" alt="..." />
                     </div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

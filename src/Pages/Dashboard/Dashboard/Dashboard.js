@@ -19,11 +19,11 @@ import ManageProducts from '../ManageProducts/ManageProducts';
 import AddProduct from '../AddProduct/AddProduct';
 
 const Dashboard = () => {
-    const { user } = useAuth()
+    const { user, logOut } = useAuth()
     let { path, url } = useRouteMatch();
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <nav className="navbar navbar-expand-lg navbar-dark dashboardNavbar fixed-top">
                 <div className="container-fluid">
                     {/* offcanvas trigerr  */}
 
@@ -32,7 +32,7 @@ const Dashboard = () => {
                     </button>
                     {/* offcanvas trigger  */}
                     <Link style={{ textDecoration: 'none' }} to="/home">
-                        <a className="navbar-brand fw-bold text-uppercase" href="#">Saha Motors</a>
+                        <a style={{ color: '#B18F6A' }} className="navbar-brand fw-bold text-uppercase" href="#">Saha Motors</a>
                     </Link>
 
                     <li className="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -92,15 +92,15 @@ const Dashboard = () => {
                 </div>
             </nav>
 
-            <div className="offcanvas bg-dark text-white offcanvas-start sidebar-nav" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div className="offcanvas dashboardOffCanvas offcanvas-start sidebar-nav" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
 
-                <div className="offcanvas-body p-0">
+                <div className="offcanvas-body  p-0">
                     <nav className='navbar-dark'>
-                        <ul className="navbar-nav mt-3">
+                        <ul className="navbar-nav  mt-3">
 
-                            <li>
+                            <li className='mb-3 '>
                                 <Link style={{ textDecoration: 'none' }} to={`${url}`}>
-                                    <a href="#" className='nav-link px-3 active'>
+                                    <a href="#" className=' px-3 offCanvasLink'>
                                         <span className="me-2">
                                             <i className="bi bi-speedometer2"></i>
                                         </span>
@@ -108,9 +108,9 @@ const Dashboard = () => {
                                     </a>
                                 </Link>
                             </li>
-                            <li>
+                            <li className='mb-3 '>
                                 <Link style={{ textDecoration: 'none' }} to={`${url}/payment`}>
-                                    <a href="#" className='nav-link px-3 active'>
+                                    <a href="#" className='offCanvasLink px-3 '>
                                         <span className="me-2">
                                             <i className="bi bi-speedometer2"></i>
                                         </span>
@@ -119,9 +119,9 @@ const Dashboard = () => {
                                 </Link>
                             </li>
 
-                            <li>
+                            <li className='mb-3 '>
                                 <Link style={{ textDecoration: 'none' }} to={`${url}/review`}>
-                                    <a href="#" className='nav-link px-3 active'>
+                                    <a href="#" className='offCanvasLink px-3 '>
                                         <span className="me-2">
                                             <i className="bi bi-speedometer2"></i>
                                         </span>
@@ -129,9 +129,9 @@ const Dashboard = () => {
                                     </a>
                                 </Link>
                             </li>
-                            <li>
+                            <li className='mb-3 '>
                                 <Link style={{ textDecoration: 'none' }} to={`${url}/manageAllOrders`}>
-                                    <a href="#" className='nav-link px-3 active'>
+                                    <a href="#" className='offCanvasLink px-3 '>
                                         <span className="me-2">
                                             <i className="bi bi-speedometer2"></i>
                                         </span>
@@ -139,9 +139,9 @@ const Dashboard = () => {
                                     </a>
                                 </Link>
                             </li>
-                            <li>
+                            <li className='mb-3 '>
                                 <Link style={{ textDecoration: 'none' }} to={`${url}/makeAdmin`}>
-                                    <a href="#" className='nav-link px-3 active'>
+                                    <a href="#" className='offCanvasLink px-3 '>
                                         <span className="me-2">
                                             <i className="bi bi-speedometer2"></i>
                                         </span>
@@ -149,9 +149,9 @@ const Dashboard = () => {
                                     </a>
                                 </Link>
                             </li>
-                            <li>
+                            <li className='mb-3 '>
                                 <Link style={{ textDecoration: 'none' }} to={`${url}/manageProducts`}>
-                                    <a href="#" className='nav-link px-3 active'>
+                                    <a href="#" className='offCanvasLink px-3 '>
                                         <span className="me-2">
                                             <i className="bi bi-speedometer2"></i>
                                         </span>
@@ -159,9 +159,9 @@ const Dashboard = () => {
                                     </a>
                                 </Link>
                             </li>
-                            <li>
+                            <li className='mb-3 '>
                                 <Link style={{ textDecoration: 'none' }} to={`${url}/addProduct`}>
-                                    <a href="#" className='nav-link px-3 active'>
+                                    <a href="#" className='offCanvasLink px-3 '>
                                         <span className="me-2">
                                             <i className="bi bi-speedometer2"></i>
                                         </span>
@@ -170,7 +170,7 @@ const Dashboard = () => {
                                 </Link>
                             </li>
                             <li className='mt-5'>
-                                <a href="#" className='nav-link px-3 active'>
+                                <a onClick={logOut} href="#" className='offCanvasLink px-3 '>
                                     <span className="me-2">
                                         <i className="bi bi-speedometer2"></i>
                                     </span>
