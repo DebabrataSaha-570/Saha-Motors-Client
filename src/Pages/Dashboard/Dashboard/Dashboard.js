@@ -16,6 +16,7 @@ import Review from '../Review/Review';
 import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import ManageProducts from '../ManageProducts/ManageProducts';
+import AddProduct from '../AddProduct/AddProduct';
 
 const Dashboard = () => {
     const { user } = useAuth()
@@ -103,7 +104,7 @@ const Dashboard = () => {
                                         <span className="me-2">
                                             <i className="bi bi-speedometer2"></i>
                                         </span>
-                                        <span>Dashboard</span>
+                                        <span>My Orders</span>
                                     </a>
                                 </Link>
                             </li>
@@ -117,16 +118,7 @@ const Dashboard = () => {
                                     </a>
                                 </Link>
                             </li>
-                            <li>
-                                <Link style={{ textDecoration: 'none' }} to={`${url}/myOrders`}>
-                                    <a href="#" className='nav-link px-3 active'>
-                                        <span className="me-2">
-                                            <i className="bi bi-speedometer2"></i>
-                                        </span>
-                                        <span>My Orders </span>
-                                    </a>
-                                </Link>
-                            </li>
+
                             <li>
                                 <Link style={{ textDecoration: 'none' }} to={`${url}/review`}>
                                     <a href="#" className='nav-link px-3 active'>
@@ -167,6 +159,16 @@ const Dashboard = () => {
                                     </a>
                                 </Link>
                             </li>
+                            <li>
+                                <Link style={{ textDecoration: 'none' }} to={`${url}/addProduct`}>
+                                    <a href="#" className='nav-link px-3 active'>
+                                        <span className="me-2">
+                                            <i className="bi bi-speedometer2"></i>
+                                        </span>
+                                        <span>Add Product</span>
+                                    </a>
+                                </Link>
+                            </li>
                             <li className='mt-5'>
                                 <a href="#" className='nav-link px-3 active'>
                                     <span className="me-2">
@@ -187,13 +189,13 @@ const Dashboard = () => {
             <main className='mt-5 pt-3'>
                 <Switch>
                     <Route exact path={path}>
-                        <DashboardHome></DashboardHome>
+                        <MyOrders></MyOrders>
                     </Route>
                     <Route path={`${path}/payment`}>
                         <Payment></Payment>
                     </Route>
                     <Route path={`${path}/myOrders`}>
-                        <MyOrders></MyOrders>
+                        {/* <MyOrders></MyOrders> */}
                     </Route>
                     <Route path={`${path}/review`}>
                         <Review></Review>
@@ -206,6 +208,9 @@ const Dashboard = () => {
                     </Route>
                     <Route path={`${path}/manageProducts`}>
                         <ManageProducts></ManageProducts>
+                    </Route>
+                    <Route path={`${path}/addProduct`}>
+                        <AddProduct></AddProduct>
                     </Route>
                 </Switch>
             </main>
