@@ -1,0 +1,28 @@
+[debug] [2022-01-28T08:14:38.472Z] ----------------------------------------------------------------------
+[debug] [2022-01-28T08:14:38.476Z] Command:       /usr/bin/node /usr/bin/firebase init
+[debug] [2022-01-28T08:14:38.477Z] CLI Version:   10.1.2
+[debug] [2022-01-28T08:14:38.477Z] Platform:      linux
+[debug] [2022-01-28T08:14:38.478Z] Node Version:  v16.13.2
+[debug] [2022-01-28T08:14:38.478Z] Time:          Fri Jan 28 2022 14:14:38 GMT+0600 (Bangladesh Standard Time)
+[debug] [2022-01-28T08:14:38.479Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-01-28T08:14:38.482Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2022-01-28T08:14:38.526Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-01-28T08:14:38.527Z] > authorizing via signed-in user (sahadebabrata570@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /media/shuvo/extra/web-Development/MileStone-12/Assignment-12-version-2/saha-motors-client
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+
+[debug] [2022-01-28T08:14:39.710Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2022-01-28T08:14:39.712Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
