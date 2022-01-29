@@ -1,0 +1,7 @@
+.featured-car-div{
+    border-left: 4px solid #B18F6A;
+    padding-left: 20px;
+}
+.featured-car-div h5{
+    font-weight: 400;
+}

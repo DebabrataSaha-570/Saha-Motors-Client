@@ -19,15 +19,16 @@ const Footer = () => {
                             <h5>FROM FLICKER</h5>
                             <hr />
                             <div className="row">
-                                <div className="col-md-5">
-                                    <img className='img-fluid' src={car1} alt="" />
+                                <div className='d-flex '>
+                                    <img className="pe-2" width="80px" height="70px" src={car1} alt="" />
+                                    <img className="ps-2" width="80px" height="70px" src={car1} alt="" />
                                 </div>
-                                <div className="col-md-5">
-                                    <img className='img-fluid' src={car1} alt="" />
-                                </div>
+
+
+
                             </div>
                             <div className="row my-2">
-                                <div className="col-md-5">
+                                <div className="col-md-5 col-xs-5 col-sm-5">
                                     <img className='img-fluid' src={car1} alt="" />
                                 </div>
                                 <div className="col-md-5">

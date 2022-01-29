@@ -13,6 +13,8 @@ import Register from './Pages/Login/Register/Register';
 import AuthProvider from './Context/AuthProvider';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
+import AllCars from './Pages/Products/AllCars/AllCars';
+import CarDetail from './Pages/Products/CarDetail/CarDetail';
 
 function App() {
   return (
@@ -29,6 +31,12 @@ function App() {
           </Route>
           <Route path="/register">
             <Register></Register>
+          </Route>
+          <Route path="/allCars">
+            <AllCars></AllCars>
+          </Route>
+          <Route path="/carDetail/:id">
+            <CarDetail></CarDetail>
           </Route>
           <PrivateRoute path="/dashboard">
             <Dashboard></Dashboard>
