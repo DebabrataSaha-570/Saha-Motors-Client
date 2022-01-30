@@ -1,6 +1,34 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
+import SingleOrder from '../SingleOrder/SingleOrder';
+import useAuth from '../../../hooks/useAuth'
 const MyOrders = () => {
+    const [orders, setOrders] = useState([])
+    const { user } = useAuth()
+
+    useEffect(() => {
+        fetch(`https://glacial-bastion-50505.herokuapp.com/myOrder?email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setOrders(data)
+
+            })
+    }, [user])
+
+    const handleCancel = (id) => {
+        console.log(id)
+        fetch(`https://glacial-bastion-50505.herokuapp.com/deleteProduct/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount) {
+                    alert('Order canceled successfully')
+                    const newOrder = orders.filter(order => order._id !== id)
+                    setOrders(newOrder)
+                }
+            })
+
+    }
     return (
         <div className="container-fluid">
             <div className="row">
@@ -9,42 +37,12 @@ const MyOrders = () => {
                 </div>
             </div>
             <div className="row">
-                <div className="col-md-3">
-                    <div class="card text-white bg-primary mb-3" style={{ maxWidth: '18rem' }}>
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Primary card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-md-3">
-                    <div class="card text-white bg-primary mb-3" style={{ maxWidth: '18rem' }}>
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Primary card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-md-3">
-                    <div class="card text-white bg-primary mb-3" style={{ maxWidth: '18rem' }}>
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Primary card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-md-3">
-                    <div class="card text-white bg-primary mb-3" style={{ maxWidth: '18rem' }}>
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Primary card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
+                {
+                    orders.map(order => <SingleOrder order={order} key={order._id} handleCancel={handleCancel}></SingleOrder>)
+                }
+
+
+
             </div>
         </div>
     );

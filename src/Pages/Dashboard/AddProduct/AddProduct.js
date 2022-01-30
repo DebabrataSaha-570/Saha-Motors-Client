@@ -33,7 +33,7 @@ const AddProduct = () => {
 
         const productData = { name: productTitleValue, image: productImageValue, price: productPriceValue, condition: productConditionValue, year: productYearValue, fuel: productFuelValue, doors: productDoorsValue, color: productColorValue, mileage: productMileageValue, engine: productEngineValue, transmission: productTransmissionValue, description: productDescriptionValue }
 
-        fetch('http://localhost:5000/addProduct', {
+        fetch('https://glacial-bastion-50505.herokuapp.com/addProduct', {
             method: 'POST',
             body: JSON.stringify(productData),
             headers: {
