@@ -39,7 +39,7 @@ const MyOrders = () => {
         <div className="container-fluid">
             <div className="row">
                 <div className="col-md-12 mb-3 fw-bold fs-3">
-                    <h2>My Orders</h2>
+                    <h2>My Orders : {orders.length}</h2>
                 </div>
             </div>
             <div className="row">

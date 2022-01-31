@@ -3,7 +3,7 @@ import SingleProduct from '../SingleProduct/SingleProduct'
 const ManageProducts = () => {
     const [allProducts, setProducts] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/allProducts')
+        fetch('https://glacial-bastion-50505.herokuapp.com/allProducts')
             .then(res => res.json())
             .then(data => {
                 setProducts(data)
@@ -13,7 +13,7 @@ const ManageProducts = () => {
 
         const success = window.confirm('Are you sure, you want to delete this product?')
         if (success) {
-            fetch(`http://localhost:5000/deleteProduct/${id}`, {
+            fetch(`https://glacial-bastion-50505.herokuapp.com/deleteProduct/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
