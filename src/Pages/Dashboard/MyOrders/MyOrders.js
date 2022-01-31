@@ -20,7 +20,7 @@ const MyOrders = () => {
 
         const success = window.confirm('Are you sure you want to cancel this order ?')
         if (success) {
-            fetch(`https://glacial-bastion-50505.herokuapp.com/deleteProduct/${id}`, {
+            fetch(`https://glacial-bastion-50505.herokuapp.com/deleteOrder/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

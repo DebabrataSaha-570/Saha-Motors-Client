@@ -1,6 +1,31 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
+import SingleProduct from '../SingleProduct/SingleProduct'
 const ManageProducts = () => {
+    const [allProducts, setProducts] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/allProducts')
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data)
+            })
+    }, [])
+    const handleDelete = (id) => {
+
+        const success = window.confirm('Are you sure, you want to delete this product?')
+        if (success) {
+            fetch(`http://localhost:5000/deleteProduct/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount) {
+                        const newProducts = allProducts.filter(product => product._id !== id)
+                        setProducts(newProducts)
+                    }
+                })
+        }
+
+    }
     return (
         <div className="container-fluid">
             <div className="row">
@@ -8,44 +33,18 @@ const ManageProducts = () => {
                     <h2>Manage Products</h2>
                 </div>
             </div>
-            <div className="row">
-                <div className="col-md-3">
-                    <div class="card text-white bg-primary mb-3" style={{ maxWidth: '18rem' }}>
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Primary card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-md-3">
-                    <div class="card text-white bg-primary mb-3" style={{ maxWidth: '18rem' }}>
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Primary card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-md-3">
-                    <div class="card text-white bg-primary mb-3" style={{ maxWidth: '18rem' }}>
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Primary card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-md-3">
-                    <div class="card text-white bg-primary mb-3" style={{ maxWidth: '18rem' }}>
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Primary card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
+            {allProducts.length > 0 ? <div className="row mb-5">
+                {
+                    allProducts.map(product => <SingleProduct key={product._id} product={product} handleDelete={handleDelete}></SingleProduct>)
+                }
             </div>
+                :
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            }
         </div>
     );
 };
