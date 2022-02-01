@@ -13,12 +13,12 @@ const SingleManageOrder = ({ order, handleDeleteOrder, handleUpdateOrder }) => {
             <td>{name}</td>
             <td>Credit Card</td>
             {status === 'pending' && <td className="text-warning">{status}</td>}
-            {status === 'Approved' && <td className="text-success">{status}</td>}
+            {status === 'Shipped' && <td className="text-success">{status}</td>}
 
             <td>
-                {status === 'pending' && <button onClick={() => handleUpdateOrder(_id)} className='btn btn-success '>Approve</button>}
+                {status === 'pending' && <button onClick={() => handleUpdateOrder(_id)} className='btn btn-success '>Ship Order</button>}
 
-                {status === 'Approved' && <button className='btn btn-success disabled'>Approve</button>}
+                {status === 'Shipped' && <button className='btn btn-success disabled'>Ship Order</button>}
                 <button onClick={() => handleDeleteOrder(_id)} className='btn btn-danger ms-2'>
                     <FontAwesomeIcon icon={faTrash} />
                 </button>

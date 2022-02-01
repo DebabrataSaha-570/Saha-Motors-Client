@@ -36,7 +36,7 @@ const ManageAllOrders = () => {
             fetch(`https://glacial-bastion-50505.herokuapp.com/updateOrderStatus/${id}`, {
                 method: 'PUT',
                 body: JSON.stringify(
-                    { status: 'Approved' }),
+                    { status: 'Shipped' }),
 
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',

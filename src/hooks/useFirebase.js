@@ -9,6 +9,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({})
     const [error, setError] = useState('')
     const [isLoading, setIsLoading] = useState(true)
+    const [admin, setAdmin] = useState(false)
 
     const googleProvider = new GoogleAuthProvider();
     const auth = getAuth();
@@ -120,6 +121,15 @@ const useFirebase = () => {
         return () => unsubscribe;
     }, [])
 
+    useEffect(() => {
+        fetch(`https://glacial-bastion-50505.herokuapp.com/users/${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log('admin loading use firebase', data)
+                setAdmin(data?.admin)
+            })
+    }, [user?.email])
+
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName }
         fetch('https://glacial-bastion-50505.herokuapp.com/addUser', {
@@ -134,6 +144,7 @@ const useFirebase = () => {
 
     }
 
+
     return {
         signInWithGoogle,
         user,
@@ -141,7 +152,8 @@ const useFirebase = () => {
         logOut,
         registerUser,
         logInUser,
-        isLoading
+        isLoading,
+        admin
 
     }
 }

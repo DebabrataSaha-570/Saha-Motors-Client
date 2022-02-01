@@ -17,7 +17,7 @@ const SingleOrder = ({ order, handleCancel }) => {
                     <p class="card-text ">{description.split(' ').splice(0, 17).join(' ')}...</p>
                     <div className='d-flex justify-content-between'>
                         {status === 'pending' && <button className='btn btn-warning'>{status}</button>}
-                        {status === 'Approved' && <button className='btn btn-success'>{status}</button>}
+                        {status === 'Shipped' && <button className='btn btn-success'>{status}</button>}
                         <button onClick={() => handleCancel(_id)} className='btn btn-danger'><FontAwesomeIcon icon={faTrash} /></button>
 
                     </div>

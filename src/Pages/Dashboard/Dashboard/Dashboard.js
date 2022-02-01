@@ -17,10 +17,12 @@ import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import ManageProducts from '../ManageProducts/ManageProducts';
 import AddProduct from '../AddProduct/AddProduct';
+import AdminRoute from '../../AdminRoute/AdminRoute';
 
 const Dashboard = () => {
-    const { user, logOut } = useAuth()
+    const { user, logOut, admin } = useAuth()
     let { path, url } = useRouteMatch();
+    console.log('admin dashboard', admin)
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark dashboardNavbar fixed-top">
@@ -128,7 +130,7 @@ const Dashboard = () => {
                                     </a>
                                 </Link>
                             </li>
-                            <li className='mb-3 '>
+                            {admin && <li className='mb-3 '>
                                 <Link style={{ textDecoration: 'none' }} to={`${url}/manageAllOrders`}>
                                     <a href="#" className='offCanvasLink px-3 '>
                                         <span className="me-2">
@@ -137,8 +139,8 @@ const Dashboard = () => {
                                         <span>Manage All Orders</span>
                                     </a>
                                 </Link>
-                            </li>
-                            <li className='mb-3 '>
+                            </li>}
+                            {admin && <li className='mb-3 '>
                                 <Link style={{ textDecoration: 'none' }} to={`${url}/makeAdmin`}>
                                     <a href="#" className='offCanvasLink px-3 '>
                                         <span className="me-2">
@@ -147,8 +149,8 @@ const Dashboard = () => {
                                         <span>Make Admin</span>
                                     </a>
                                 </Link>
-                            </li>
-                            <li className='mb-3 '>
+                            </li>}
+                            {admin && <li className='mb-3 '>
                                 <Link style={{ textDecoration: 'none' }} to={`${url}/manageProducts`}>
                                     <a href="#" className='offCanvasLink px-3 '>
                                         <span className="me-2">
@@ -157,8 +159,8 @@ const Dashboard = () => {
                                         <span>Manage Products</span>
                                     </a>
                                 </Link>
-                            </li>
-                            <li className='mb-3 '>
+                            </li>}
+                            {admin && <li className='mb-3 '>
                                 <Link style={{ textDecoration: 'none' }} to={`${url}/addProduct`}>
                                     <a href="#" className='offCanvasLink px-3 '>
                                         <span className="me-2">
@@ -167,7 +169,7 @@ const Dashboard = () => {
                                         <span>Add Product</span>
                                     </a>
                                 </Link>
-                            </li>
+                            </li>}
                             <li className='mt-5'>
                                 <a onClick={logOut} href="#" className='offCanvasLink px-3 '>
                                     <span className="me-2">
@@ -199,18 +201,18 @@ const Dashboard = () => {
                     <Route path={`${path}/review`}>
                         <Review></Review>
                     </Route>
-                    <Route path={`${path}/manageAllOrders`}>
+                    <AdminRoute path={`${path}/manageAllOrders`}>
                         <ManageAllOrders></ManageAllOrders>
-                    </Route>
-                    <Route path={`${path}/makeAdmin`}>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
-                    </Route>
-                    <Route path={`${path}/manageProducts`}>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manageProducts`}>
                         <ManageProducts></ManageProducts>
-                    </Route>
-                    <Route path={`${path}/addProduct`}>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/addProduct`}>
                         <AddProduct></AddProduct>
-                    </Route>
+                    </AdminRoute>
                 </Switch>
             </main>
         </>
