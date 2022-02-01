@@ -22,6 +22,9 @@ const useFirebase = () => {
                 setUser(newUser)
                 setError('')
                 console.log(user)
+                //save user to database 
+                saveUser(email, name, 'POST')
+
                 updateProfile(auth.currentUser, {
                     displayName: name,
                 }).then(() => {
@@ -77,6 +80,7 @@ const useFirebase = () => {
                 setUser(user)
                 setError('')
                 console.log(user)
+                saveUser(user?.email, user?.displayName, 'PUT')
                 const destination = location?.state?.from || '/'
                 history.push(destination)
             }).catch((error) => {
@@ -115,6 +119,20 @@ const useFirebase = () => {
         });
         return () => unsubscribe;
     }, [])
+
+    const saveUser = (email, displayName, method) => {
+        const user = { email, displayName }
+        fetch('https://glacial-bastion-50505.herokuapp.com/addUser', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+
+    }
 
     return {
         signInWithGoogle,

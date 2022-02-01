@@ -66,8 +66,8 @@ const ManageAllOrders = () => {
 
             <div className="row">
 
-                <div className='table-responsive'>
-                    <table class="table">
+                <div className="">
+                    <table class="table table-responsive'">
                         <thead>
                             <tr>
                                 <th scope="col">Name</th>
