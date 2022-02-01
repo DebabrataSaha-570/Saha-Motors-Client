@@ -42,7 +42,7 @@ const MyOrders = () => {
                     <h2>My Orders : {orders.length}</h2>
                 </div>
             </div>
-            <div className="row">
+            <div className="row mb-5">
                 {
                     orders.map(order => <SingleOrder order={order} key={order._id} handleCancel={handleCancel}></SingleOrder>)
                 }

@@ -4,7 +4,7 @@ import { faCoffee, faTrash } from '@fortawesome/free-solid-svg-icons'
 const SingleProduct = ({ product, handleDelete }) => {
     const { image, name, price, description, _id } = product
     return (
-        <div className="col-md-4">
+        <div className="col-md-4 d-flex justify-content-center">
 
             <div className="card shadow mt-4" style={{ width: '20rem' }}>
                 <img src={image} className="card-img-top" alt="..." />

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Footer from '../../Home/Footer/Footer';
 import SingleManageOrder from '../SingleManageOrder/SingleManageOrder'
 
 const ManageAllOrders = () => {
@@ -64,10 +65,10 @@ const ManageAllOrders = () => {
                 </div>
             </div>
 
-            <div className="row">
+            {allOrders.length ? <div className="row">
 
-                <div className="">
-                    <table class="table table-responsive'">
+                <div className=" table-responsive">
+                    <table className="table ">
                         <thead>
                             <tr>
                                 <th scope="col">Name</th>
@@ -88,6 +89,15 @@ const ManageAllOrders = () => {
                     </table>
                 </div>
             </div>
+                :
+                <div className="d-flex justify-content-center">
+                    <div className="spinner-border text-primary" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            }
+
+
 
         </div>
     );

@@ -9,7 +9,7 @@ const SingleOrder = ({ order, handleCancel }) => {
 
 
     return (
-        <div className="col-md-3">
+        <div className="col-md-3 d-flex justify-content-center">
             <div className="card shadow mt-3" style={{ width: '19rem' }}>
                 <img src={image} className="card-img-top" alt="..." />
                 <div className="card-body">

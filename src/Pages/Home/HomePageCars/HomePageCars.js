@@ -19,7 +19,7 @@ const HomePageCars = () => {
                 <h2 >FEATURED CARS</h2>
                 <h5>Our latest product</h5>
             </div>
-            {products.length ? <div className="row">
+            {products.length ? <div className="row ">
                 {
                     products.slice(0, 6).map(product => <SingleCar product={product} key={product._id} ></SingleCar>)
                 }
