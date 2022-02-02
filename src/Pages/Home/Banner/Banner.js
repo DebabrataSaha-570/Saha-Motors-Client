@@ -14,6 +14,7 @@ const Banner = () => {
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
+                        {/* <img src='https://i.ibb.co/VHMk1bC/nate-johnston-Pcb-JL9-CYSXs-unsplash.jpg' className="d-block w-100" alt="..." /> */}
                         <img src='https://i.ibb.co/LZk5R7b/travis-essinger-3-V0-FGLkuey-A-unsplash.jpg' className="d-block w-100" alt="..." />
                     </div>
                     <div className="carousel-item">

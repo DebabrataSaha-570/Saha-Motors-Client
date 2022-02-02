@@ -18,7 +18,7 @@ const Welcome = () => {
 
                 <div className="col-md-6">
                     <h5>ASK A CAR DEALER BEFORE BUYING</h5>
-                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion accordion-flush pt-2" id="accordionFlushExample">
                         <div class="accordion-item my-3 border">
                             <h2 class="accordion-header" id="flush-headingOne">
                                 <button class="accordion-button collapsed homepage-accordion-heading p-4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
