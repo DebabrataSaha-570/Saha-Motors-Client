@@ -23,7 +23,7 @@ const Navbar = () => {
                             </li>
                             <li className="nav-item">
                                 {user.email ?
-                                    <a onClick={logOut} style={{ cursor: 'pointer' }} className="nav-link active" >LogOut</a>
+                                    <a onClick={logOut} style={{ cursor: 'pointer' }} className="nav-link active" >Logout</a>
                                     :
                                     <Link to="/login">
                                         <a className="nav-link active" >Login</a>

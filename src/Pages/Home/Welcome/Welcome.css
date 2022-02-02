@@ -1,0 +1,13 @@
+.headingDiv{
+    border-left: 4px solid #B18F6A;
+    
+    padding: 5px;
+}
+.headingDiv h2{
+    font-weight: 400;
+    padding-left: 20px;
+}
+.homepage-accordion-heading{
+    background-color: #B18F6A;
+    color: white;
+}
