@@ -57,6 +57,7 @@ const useFirebase = () => {
                 // Signed in 
                 const user = userCredential.user;
                 setUser(user)
+                console.log(user)
                 setError('')
                 const destination = location?.state?.from || '/'
                 history.push(destination)
